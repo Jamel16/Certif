@@ -1,26 +1,38 @@
- <div class="container">
-  <h1><%= @post.title %></h1>
-  <h3><%= @post.user.nickname %></h3>
-  <p><%= @post.content %></p>
-  <%= @post.url %>
-  <h5>Commentaires</h5>
-  <% @post.comments.each do |comment| %>
-    <%= comment.user.nickname %>
-    <%= comment.content %>
-  <% end %>
+ <div class="container mb-5">
+  <p><%= link_to "<< Retour aux articles", posts_path, class:"mb-2 mt-4" %></p>
+  <div id="show">
+    <h1><%= @post.title %></h1>
+    <h5 class="mb-4 mt-4"><em>Rédigé par</em> <strong><%= @post.user.nickname.capitalize %></strong></h3>
+    <%= cl_image_tag @post.url, height: 500, crop: :fill, class:"listing-img" %>
+    <p><%= @post.content %></p>
 
-  <%= simple_form_for [@post, @comment] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <div class="form-inputs">
-      <%= f.input :content, as: :text %>
+    <h3 class="mt-5">Commentaires</h5>
+    <div class="comments mb-4">
+      <% if @post.comments.any? %>
+        <% @post.comments.each do |comment| %>
+          <em>Écrit par: </em><strong><%= comment.user.nickname %></strong><br >
+          <p style="white-space: pre-line;"><%= comment.content %></p>
+        <% end %>
+      <% else %>
+        <p>Aucun commentaire</p>
+      <% end %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </div>
-  <% end %>
 
-  <%= link_to "<< Retour aux articles", posts_path, class:"mb-2" %>
+    <div id="contact">
+      <%= simple_form_for [@post, @comment] do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="form-inputs">
+          <%= f.input :content, as: :text, label: "Ajouter un commentaire" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Publier", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>

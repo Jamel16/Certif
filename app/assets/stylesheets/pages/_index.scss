@@ -1,2 +1,33 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+
+#posts {
+  display: grid;
+  margin-top: 46px;
+  margin-bottom: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.card-posts {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding-bottom: 44px;
+  height: 100%;
+}
+
+h4 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 36px;
+}

@@ -1,0 +1,33 @@
+#show {
+  width: 50%;
+  margin: 5px auto;
+}
+
+.comments {
+  background-color: lightgray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  padding-top: 12px;
+  padding-left: 12px;
+  margin-bottom: 10px;
+}
+
+.comments p {
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+#show h1 {
+  margin-bottom: 34px;
+  text-decoration: underline;
+}
+
+#show .btn {
+  border-radius: 5px;
+}
+
+.listing-img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 24px;
+}
