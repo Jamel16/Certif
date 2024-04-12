@@ -42,8 +42,14 @@ user3.save!
     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
     sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
     tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-    url: "https://res.cloudinary.com/dqyatq8yq/image/upload/v1712861889/code/ptgnayjp8urjylwqgngf.jpg",
+    url: Faker::Internet.url,
     user_id: User.pluck(:id).sample
   )
 end
+
+Comment.create!(
+  content: "Ce commentaire est génial !",
+  user_id: User.pluck(:id).sample,
+  post_id: Post.first.id
+)
 puts "Done!"

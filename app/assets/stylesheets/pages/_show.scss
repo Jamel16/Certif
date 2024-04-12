@@ -18,7 +18,6 @@
 }
 
 #show h1 {
-  margin-bottom: 34px;
   text-decoration: underline;
 }
 
@@ -30,4 +29,24 @@
   width: 100%;
   object-fit: cover;
   margin-bottom: 24px;
+}
+
+#lien {
+  margin-bottom: 60px;
+  text-decoration: none;
+}
+
+#source {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: orangered;
+  }
+}
+
+.retour {
+  text-decoration: none;
+  &:hover {
+    color: orangered;
+  }
 }
