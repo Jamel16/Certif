@@ -2,7 +2,7 @@
   <p><%= link_to "<< Retour aux articles", posts_path, class:"mb-2 mt-4" %></p>
   <div id="show">
     <h1><%= @post.title %></h1>
-    <h5 class="mb-4 mt-4"><em>Rédigé par</em> <strong><%= @post.user.nickname.capitalize %></strong></h3>
+    <h5 class="mb-4 mt-4"><em>Auteur :</em> <strong><%= @post.user.nickname.capitalize %></strong></h3>
     <%= cl_image_tag @post.url, height: 500, crop: :fill, class:"listing-img" %>
     <p><%= @post.content %></p>
 

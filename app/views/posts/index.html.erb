@@ -1,6 +1,6 @@
 <div class="container">
   <p class="mt-4"><%= link_to "<< Retour à la page d'accueil", root_path %></p>
-  <h1>Listes des articles</h1>
+  <h1 id="titre">Listes des articles</h1>
   <div id="posts">
     <% @posts.each do |post| %>
       <%= link_to post_path(post) do %>
@@ -8,6 +8,7 @@
           <%= cl_image_tag post.url, height: 300, width: 400, crop: :fill, class:"listing-img" %>
           <div class="card-title mt-2">
             <h4><%= post.title %></h1>
+            <p><%= truncate(post.content, length: 150) %></p>
           </div>
         </div>
       <% end %>
