@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: "Commentaire créé avec succès !"
     else
-      redirect_to @post, alert: "Une erreur s'est produite lors de la création du commentaire."
+      redirect_to @post, alert: "Merci de rentrer un commentaire"
     end
   end
 
