@@ -20,9 +20,25 @@ user2.save!
 user3 = User.new(nickname: "Jean", password: "azerty", email: "Jean@gmail.com")
 user3.save!
 
-10.times do
+ARTICLE_TITLES = [
+  "Nouvelle étude révèle une hausse des températures record dans le monde",
+  "Cuisiner avec des ingrédients de saison : des plats simples et délicieux",
+  "Résultats surprenants de l'enquête sur les habitudes de sommeil",
+  "Crise économique : les experts s'attendent à une reprise lente",
+  "Découverte d'une nouvelle espèce de mammifère dans la forêt amazonienne",
+  "Les inondations dévastatrices affectent des milliers de personnes",
+  "Le secteur de la technologie en plein essor malgré la pandémie",
+  "La révolution des voitures électriques : ce que l'avenir nous réserve",
+  "Les manifestations pour la justice sociale continuent à travers le monde",
+  "Les bienfaits insoupçonnés de la méditation sur la santé mentale",
+  "Comment préparer votre enfant à réussir dans un monde en constante évolution",
+  "Intelligence artificielle : comment elle transforme nos vies au quotidien",
+
+]
+
+12.times do
   Post.create!(
-    title: Faker::Book.title,
+    title: ARTICLE_TITLES.sample,
     content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
     totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
@@ -47,9 +63,11 @@ user3.save!
   )
 end
 
-Comment.create!(
-  content: "Ce commentaire est génial !",
-  user_id: User.pluck(:id).sample,
-  post_id: Post.first.id
-)
+Post.find_each do |post|
+  Comment.create!(
+    content: "Cet article est génial !",
+    user_id: User.pluck(:id).sample,
+    post_id: post.id
+  )
+end
 puts "Done!"

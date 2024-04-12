@@ -16,3 +16,11 @@
   font-size: 60px;
   font-family: "Playfair Display", serif;
 }
+
+.navbar-lewagon .btn {
+  background-color: tan;
+  border: 0px;
+  &:hover {
+    background-color: rgb(194, 121, 27);
+  }
+}

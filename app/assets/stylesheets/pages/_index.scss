@@ -24,10 +24,15 @@
   text-decoration: none;
   padding-bottom: 44px;
   height: 100%;
+
+  &:hover {
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.1s ease-in-out;
+  }
 }
 
 h4 {
-  font-size: 34px;
+  font-size: 30px;
   color: rgb(0, 0, 0);
   text-align: center;
 }
